@@ -3,7 +3,7 @@
 # for examples
 umask 0007
 
-source mod/mod.sh
+source $HOME/.my/dotfiles/mod/mod.sh
 
 ## MAIN {{{
 

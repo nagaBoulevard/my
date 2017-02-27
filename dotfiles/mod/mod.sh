@@ -1,9 +1,13 @@
 #on tungsteno
 #use the path relative to bashrc
-#source ./mod/tungstenorc.sh
+host=`cat /etc/hostname`
 
-#on mora
-source .mod/cuberc.sh
+case $host in
+	"tungsteno") 
+		source $HOME/.my/dotfiles/mod/tungstenorc.sh;;
+	"cube") 
+		source $HOME/.my/dotfiles/mod/cuberc.sh;;
+	"mora")
+		source $HOME/.my/dotfiles/mod/morarc.sh;;
+esac
 
-#else
-#...
