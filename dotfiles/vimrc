@@ -1,0 +1,132 @@
+
+" PLUGINS {{{
+" using vim-plug
+
+" select the plugin directory
+call plug#begin('~/.vim/plugged')
+
+Plug 'morhetz/gruvbox'
+Plug 'scrooloose/nerdcommenter'
+
+call plug#end()
+
+" }}}
+
+
+" LOOK {{{
+
+syntax enable
+set background=dark
+colo gruvbox
+hi Normal ctermbg=None " use the terminal background color
+
+hi vertsplit ctermfg=238 ctermbg=235
+hi LineNr ctermfg=239 " TODO
+hi StatusLine ctermfg=235 ctermbg=245
+hi StatusLineNC ctermfg=235 ctermbg=237
+hi Search ctermbg=58 ctermfg=15
+hi Default ctermfg=1
+hi clear SignColumn
+hi SignColumn ctermbg=235
+hi GitGutterAdd ctermbg=235 ctermfg=245
+hi GitGutterChange ctermbg=235 ctermfg=245
+hi GitGutterDelete ctermbg=235 ctermfg=245
+hi GitGutterChangeDelete ctermbg=235 ctermfg=245
+hi EndOfBuffer ctermfg=237 ctermbg=235
+
+set statusline=%.20F\ %y\ %=\ %m\ %L\ %l\:%c\ \ \ \ \ \ \ 
+set fillchars=vert:\ ,stl:\ ,stlnc:\ 
+set laststatus=2
+set noshowmode
+
+" }}}
+
+
+" GENERAL {{{
+
+set autoindent
+set backspace=indent,eol,start
+set showmatch
+set showmode "TODO
+set smarttab
+
+set foldmethod=marker
+
+set shiftround
+set laststatus=2
+set ruler
+set showcmd
+set wildmenu
+
+set autoread
+set encoding=utf-8
+set tabstop=4 shiftwidth=4
+
+set incsearch
+set number
+set hlsearch
+set ignorecase
+set smartcase
+set mouse=a
+set hidden
+set nobackup
+set nowritebackup
+set noswapfile
+set fileformats=unix,dos,mac
+
+set completeopt=menuone,longest,preview
+
+" General }}}
+
+
+" MAPPING {{{
+" TODO : Delete previuos word with C-BackSpace
+ 
+" what should be standard
+cnoreabbrev Q q
+cnoreabbrev W w
+cnoreabbrev Wq wq
+cnoreabbrev WQ wq
+
+" remove the Ex mod
+nnoremap q <nop>
+nnoremap Q <nop>
+
+" undo
+nnoremap <C-z> :undo<CR>
+inoremap <C-z> <Esc>:undo<CR>i
+
+" folds
+nnoremap <space> za
+
+" normal backspace
+nmap <BS> i<BS><Esc>
+
+" Move lines up and down
+noremap  <C-up>    :m-2<CR>
+noremap  <C-down>  :m+1<CR>
+inoremap <C-up>    <Esc>:m-2<CR>i
+inoremap <C-down>  <Esc>:m+1<CR>i
+
+" Tabs
+nnoremap <C-right> :tabprevious<CR>
+inoremap <C-right>  <Esc>:tabprevious<CR>i
+nnoremap <C-left>  :tabnext<CR>
+inoremap <C-left>  <Esc>:tabnext<CR>i
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-t>     <Esc>:tabnew<CR>i
+
+let mapleader = ';'
+nnoremap <Leader>p :set paste<CR>
+nnoremap <Leader>o :set nopaste<CR>
+
+" Mapping }}}
+
+
+" PLUG-MAPPING {{{
+
+" NERDcommenter
+"nnoremap <C-c> :call NERDComment('n', "Toogle")<CR>
+"inoremap <C-c> <Esc>:call NERDComment('n', "Toogle")<CR>i
+
+" }}}
