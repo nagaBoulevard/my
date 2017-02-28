@@ -3,6 +3,7 @@
 # for examples
 umask 0007
 
+# source for host dependent settings
 source $HOME/.my/dotfiles/mod/mod.sh
 
 # MAIN {{{
@@ -50,6 +51,7 @@ alias grep='grep --color="auto"'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+alias lst='ls --sort=time'
 alias size="du -h -d1 | sort -k1hr"
 # }}}
 
@@ -121,14 +123,11 @@ ${BLACK}>${DEFAULT}$END "
 
 # SETTINGS {{{
 
-#Let screen get the name of the command running
-case "$TERM" in
-    screen*) PROMPT_COMMAND='/bin/echo -ne "\033k\033\0134"'
-esac
-
+export PATH=$PATH:$HOME/.my/bin/
 
 # set colorspace to 256 colors 
 export TERM=xterm-256color
+
 export EDITOR=vi
 
 # set completion
