@@ -26,15 +26,21 @@ hi FoldColumn	ctermbg=None
 hi Tabline		ctermbg=None	ctermfg=243		cterm=bold
 hi TabLineFill	ctermbg=None
 hi TablineSel	ctermbg=None	ctermfg=9		cterm=bold
-hi StatusLine	ctermbg=None	ctermfg=9 		cterm=bold
-hi StatusLineNC	ctermbg=None	ctermfg=243		cterm=bold
 hi Pmenu		ctermbg=None	ctermfg=142
 hi PmenuSel		ctermbg=None	ctermfg=9		cterm=reverse
+hi StatusLineNC	ctermbg=None	ctermfg=243		cterm=bold
 
+" change on insertmode
+hi StatusLine					ctermbg=None	ctermfg=9 		cterm=bold
+au InsertEnter * hi StatusLine	ctermbg=None	ctermfg=142		cterm=bold
+au InsertLeave * hi StatusLine	ctermbg=None	ctermfg=9 		cterm=bold
+
+
+
+" cropped filename : ft : percent_on_tot
 set statusline=%=\ %.12F\ %y\ %p%%\ \ 
-set fillchars=vert:\ ,stl:\ ,stlnc:\ 
+set fillchars=vert:\|,stl:\ ,stlnc:-
 set laststatus=2
-set noshowmode
 
 set encoding=utf8
 set list listchars=tab:»\ ,trail:·
@@ -44,37 +50,35 @@ set list listchars=tab:»\ ,trail:·
 
 " GENERAL {{{
 
+set backspace=indent,eol,start				" real backspace
 set autoindent
-set backspace=indent,eol,start
-set showmatch
-set showmode "TODO
 set smarttab
+set tabstop=4 shiftwidth=4
 
 set foldmethod=marker
 
 set shiftround
-set laststatus=2
-set ruler
+set number									" display col numbers
+set ruler									" display cursor position
 set showcmd
-set wildmenu
+set wildmenu								" autocomplete menu
+set noshowmode								" hide the current mode
+set completeopt=menuone,longest,preview
 
-set autoread
-set encoding=utf-8
-set tabstop=4 shiftwidth=4
+set autoread								" auto detect if a file has been changed from outside
 
-set incsearch
-set number
-set hlsearch
-set ignorecase
-set smartcase
-set mouse=a
-set hidden
+set showmatch								" hi the matches
+set incsearch								" incremental search, like in browsers
+set hlsearch								" hi the mathces of search
+set ignorecase								" ignore the case while searching
+set smartcase								" be smart with the case while searching
+
+set mouse=a									" mouse activate!
+set hidden									" set abandoned buffers as hidden
 set nobackup
 set nowritebackup
 set noswapfile
 set fileformats=unix,dos,mac
-
-set completeopt=menuone,longest,preview
 
 " General }}}
 
