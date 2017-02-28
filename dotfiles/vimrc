@@ -23,10 +23,11 @@ hi Normal ctermbg=None " use the terminal background color
 hi vertsplit	ctermbg=None
 hi Folded 		ctermbg=None	ctermfg=214		cterm=bold
 hi FoldColumn	ctermbg=None
-hi Tabline 		ctermbg=None	ctermfg=142		cterm=bold
+hi Tabline 		ctermbg=None	ctermfg=243		cterm=bold
 hi TabLineFill	ctermbg=None
 hi TablineSel	ctermbg=None	ctermfg=9		cterm=bold
 hi StatusLine 	ctermbg=None	ctermfg=9 		cterm=bold
+hi StatusLineNC	ctermbg=None	ctermfg=243		cterm=bold
 hi Pmenu		ctermbg=None	ctermfg=142
 hi PmenuSel		ctermbg=None	ctermfg=9		cterm=reverse
 
