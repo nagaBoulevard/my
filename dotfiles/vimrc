@@ -18,37 +18,26 @@ call plug#end()
 syntax enable
 set background=dark
 colo gruvbox
-hi Normal ctermbg=None " use the terminal background color
 
-hi vertsplit	ctermbg=None
-hi Folded 		ctermbg=None	ctermfg=214		cterm=bold
+hi Normal		ctermbg=None
+hi VertSplit	ctermbg=None
+hi Folded		ctermbg=None	ctermfg=214		cterm=bold
 hi FoldColumn	ctermbg=None
-hi Tabline 		ctermbg=None	ctermfg=243		cterm=bold
+hi Tabline		ctermbg=None	ctermfg=243		cterm=bold
 hi TabLineFill	ctermbg=None
 hi TablineSel	ctermbg=None	ctermfg=9		cterm=bold
-hi StatusLine 	ctermbg=None	ctermfg=9 		cterm=bold
+hi StatusLine	ctermbg=None	ctermfg=9 		cterm=bold
 hi StatusLineNC	ctermbg=None	ctermfg=243		cterm=bold
 hi Pmenu		ctermbg=None	ctermfg=142
 hi PmenuSel		ctermbg=None	ctermfg=9		cterm=reverse
 
-
-"hi LineNr ctermfg=239 
-"hi StatusLine ctermfg=235 ctermbg=245
-"hi StatusLineNC ctermfg=235 ctermbg=237
-"hi Search ctermbg=58 ctermfg=15
-"hi Default ctermfg=1
-"hi clear SignColumn
-"hi SignColumn ctermbg=235
-"hi GitGutterAdd ctermbg=235 ctermfg=245
-"hi GitGutterChange ctermbg=235 ctermfg=245
-"hi GitGutterDelete ctermbg=235 ctermfg=245
-"hi GitGutterChangeDelete ctermbg=235 ctermfg=245
-"hi EndOfBuffer ctermfg=237 ctermbg=235
-
-set statusline=%=\ %.12F\ %y\ %p\ \ 
+set statusline=%=\ %.12F\ %y\ %p%%\ \ 
 set fillchars=vert:\ ,stl:\ ,stlnc:\ 
 set laststatus=2
 set noshowmode
+
+set encoding=utf8
+set list listchars=tab:»\ ,trail:·
 
 " }}}
 
