@@ -20,10 +20,20 @@ set background=dark
 colo gruvbox
 hi Normal ctermbg=None " use the terminal background color
 
-"hi vertsplit ctermfg=238 ctermbg=235
-"hi LineNr ctermfg=239 " TODO
-""hi StatusLine ctermfg=235 ctermbg=245
-""hi StatusLineNC ctermfg=235 ctermbg=237
+hi vertsplit	ctermbg=None
+hi Folded 		ctermbg=None	ctermfg=214		cterm=bold
+hi FoldColumn	ctermbg=None
+hi Tabline 		ctermbg=None	ctermfg=142		cterm=bold
+hi TabLineFill	ctermbg=None
+hi TablineSel	ctermbg=None	ctermfg=9		cterm=bold
+hi StatusLine 	ctermbg=None	ctermfg=9 		cterm=bold
+hi Pmenu		ctermbg=None	ctermfg=142
+hi PmenuSel		ctermbg=None	ctermfg=9		cterm=reverse
+
+
+"hi LineNr ctermfg=239 
+"hi StatusLine ctermfg=235 ctermbg=245
+"hi StatusLineNC ctermfg=235 ctermbg=237
 "hi Search ctermbg=58 ctermfg=15
 "hi Default ctermfg=1
 "hi clear SignColumn
@@ -34,8 +44,7 @@ hi Normal ctermbg=None " use the terminal background color
 "hi GitGutterChangeDelete ctermbg=235 ctermfg=245
 "hi EndOfBuffer ctermfg=237 ctermbg=235
 
-set statusline=%.20F\ %y\ %m\ %L\ %l\:%c\ \ \ \ \ \ \ 
-hi StatusLine ctermbg=235 ctermfg=238
+set statusline=%=\ %.12F\ %y\ %p\ \ 
 set fillchars=vert:\ ,stl:\ ,stlnc:\ 
 set laststatus=2
 set noshowmode
@@ -81,8 +90,9 @@ set completeopt=menuone,longest,preview
 
 
 " MAPPING {{{
-" TODO : Delete previuos word with C-BackSpace
- 
+" delete prev word
+"nnoremap <C-w> i<C-w><Esc>
+  
 " what should be standard
 cnoreabbrev Q q
 cnoreabbrev W w
@@ -110,16 +120,23 @@ inoremap <C-up>    <Esc>:m-2<CR>i
 inoremap <C-down>  <Esc>:m+1<CR>i
 
 " Tabs
-nnoremap <C-right> :tabprevious<CR>
-inoremap <C-right>  <Esc>:tabprevious<CR>i
-nnoremap <C-left>  :tabnext<CR>
-inoremap <C-left>  <Esc>:tabnext<CR>i
+nnoremap <C-left> :tabprevious<CR>
+inoremap <C-left>  <Esc>:tabprevious<CR>i
+nnoremap <C-right>  :tabnext<CR>
+inoremap <C-right>  <Esc>:tabnext<CR>i
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>i
 
+" leader
 let mapleader = ';'
 nnoremap <Leader>p :set paste<CR>
 nnoremap <Leader>o :set nopaste<CR>
+
+
+"identify the hi group at the cursor
+map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Mapping }}}
 

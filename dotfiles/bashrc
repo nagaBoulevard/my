@@ -5,7 +5,7 @@ umask 0007
 
 source $HOME/.my/dotfiles/mod/mod.sh
 
-## MAIN {{{
+# MAIN {{{
 
 # If not running interactively, don't do anything
 case $- in
@@ -113,7 +113,7 @@ END='\[\033[0m\]'
 
 PS1="\n\
 ${BOLD}\
-${GREEN}\$(prompt_time) ${DEFAULT}in ${GREEN}\h:\$(pwd) \$(git_branch)\n\
+${GREEN}\$(prompt_time) ${DEFAULT}in ${GREEN}\h:\$(pwd) ${YELLOW}\$(git_branch)\n\
 ${BLACK}>${DEFAULT}$END "
 
 # }}}
