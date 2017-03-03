@@ -1,0 +1,19 @@
+// this is a comment
+
+
+{group}
+
+{.special.}
+
+{Inflammation}
+	under inflammation, the cells react to the specific situation.
+		- like this
+	this creates a some conditon where stuff happens
+		- or like this one
+			* or even this one
+			* or else this one
+		- or lastly this
+	This could results in a greater _help_ or `aa`
+	This could be an interesting topic on
+		- test -> return aa
+		- else -> return x

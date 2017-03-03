@@ -138,3 +138,11 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 " PLUG-MAPPING {{{
 
 " }}}
+
+
+
+" FILETYPES {{{
+
+au BufRead,BufNewFile *.bn set filetype=bnote
+
+" }}}
