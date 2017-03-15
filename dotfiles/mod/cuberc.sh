@@ -18,6 +18,12 @@ ${BOLD}\
 ${GREEN}\$(prompt_time) ${DEFAULT}in ${GREEN}\h:\$(pwd) ${YELLOW}\$(git_branch)\n\
 ${BLACK}>$END "
 
+
+PS1="\n\
+${BOLD}\
+${GREEN}\w${BLACK} \$(git_branch)\n\
+${WHITE}>$END "
+
 # }}}
 
 
