@@ -41,7 +41,7 @@ END='\[\033[0m\]'
 PS1="\n\
 ${BOLD}\
 ${RED}\w ${BLACK}\$(git_branch)\n\
-${RED}>$END "
+${RED}~>$END "
 
 # }}}
 

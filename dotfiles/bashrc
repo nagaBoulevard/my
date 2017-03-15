@@ -103,12 +103,6 @@ function git_branch {
 		else status=""; fi
 	fi
 
-	if [[ "$branch" != "" ]]; then
-		if git log origin/master..HEAD | grep -q commit;
-			then status+=" ->"; 
-		fi
-	fi
-	
 	echo "$branch$status"
 	
 }
