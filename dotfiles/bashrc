@@ -89,16 +89,21 @@ function short_wd {
 # display the current git branch
 function git_branch {
 	branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
-	if [ $? != 0 ]; then
-		branch=""
-	else
-		branch="($branch)"
-	fi
-	echo $branch
+	if [ $? != 0 ]; 
+		then branch=""; 
+		else branch="($branch)"; fi
+
+	if git status -s | grep -q M;
+		then modified=true;
+		else modified=false; fi
+	
+	if $modified;
+		then echo $branch | tr ")(" "* ";
+		else echo $branch | tr ")(" "  "; fi
+	
 }
 
 # }}}
-
 
 
 # SETTINGS {{{
