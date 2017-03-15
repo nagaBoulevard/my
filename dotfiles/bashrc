@@ -55,6 +55,10 @@ alias la='ls -A'
 alias l='ls -CF'
 alias lst='ls --sort=time'
 alias size="du -h -d1 | sort -k1hr"
+
+# GIT
+alias "gitss"="git status -s | tr -s ' ' '\t' | cut -f2,3 "
+
 # }}}
 
 
@@ -90,16 +94,16 @@ function short_wd {
 function git_branch {
 	branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
 	if [ $? != 0 ]; 
-		then branch=""; 
-		else branch="($branch)"; fi
+		then branch=""; fi
 
 	if git status -s | grep -q M;
-		then modified=true;
-		else modified=false; fi
+		then status="*";
+		else status=""; fi
+
+	if git log origin/master..HEAD | grep -q commit;
+		then status+=" ->"; fi
 	
-	if $modified;
-		then echo $branch | tr ")(" "* ";
-		else echo $branch | tr ")(" "  "; fi
+	echo "$branch$status"
 	
 }
 
