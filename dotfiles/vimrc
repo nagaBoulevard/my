@@ -7,6 +7,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdcommenter'
 Plug 'rust-lang/rust.vim'
+Plug 'godlygeek/tabular'
+
 
 call plug#end()
 
