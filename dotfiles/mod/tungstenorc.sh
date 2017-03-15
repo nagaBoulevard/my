@@ -40,7 +40,7 @@ END='\[\033[0m\]'
 
 PS1="\n\
 ${BOLD}\
-${RED}\$(prompt_time) ${DEFAULT}in ${RED}\h:\$(pwd) ${PURPLE}\$(git_branch)\n\
+${RED}\w ${BLACK}\$(git_branch)\n\
 ${RED}>$END "
 
 # }}}

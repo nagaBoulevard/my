@@ -13,16 +13,11 @@ WHITE='\[\033[37m\]'
 DEFAULT='\[\033[39m\]'
 END='\[\033[0m\]'
 
-PS1="\n\
-${BOLD}\
-${GREEN}\$(prompt_time) ${DEFAULT}in ${GREEN}\h:\$(pwd) ${YELLOW}\$(git_branch)\n\
-${BLACK}>$END "
-
 
 PS1="\n\
 ${BOLD}\
 ${GREEN}\w${BLACK} \$(git_branch)\n\
-${WHITE}>$END "
+${GREEN}>$END "
 
 # }}}
 

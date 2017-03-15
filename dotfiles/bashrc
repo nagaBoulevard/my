@@ -97,12 +97,17 @@ function git_branch {
 	if [ $? != 0 ]; 
 		then branch=""; fi
 
+	if [[ "$branch" != "" ]]; then
 	if git status -s | grep -q M;
 		then status="*";
 		else status=""; fi
+	fi
 
-	if git log origin/master..HEAD | grep -q commit;
-		then status+=" ->"; fi
+	if [[ "$branch" != "" ]]; then
+		if git log origin/master..HEAD | grep -q commit;
+			then status+=" ->"; 
+		fi
+	fi
 	
 	echo "$branch$status"
 	
