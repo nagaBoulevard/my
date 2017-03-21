@@ -95,13 +95,14 @@ function short_wd {
 function git_branch {
 	branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
 	if [ $? != 0 ]; 
-		then branch=""; fi
-
-	if [[ "$branch" != "" ]]; then
-	if git status -s | grep -q M;
-		then status="*";
-		else status=""; fi
+		then branch=""; 
 	fi
+
+#	if [[ "$branch" != "" ]]; then
+#	if git status -s | grep -q M;
+#		then status="*";
+#		else status=""; fi
+#	fi
 
 	echo "$branch$status"
 	
