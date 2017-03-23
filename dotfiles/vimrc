@@ -8,6 +8,7 @@ Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdcommenter'
 Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
+Plug 'ibab/vim-snakemake'
 
 
 call plug#end()
