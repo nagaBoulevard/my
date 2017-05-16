@@ -9,6 +9,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'rust-lang/rust.vim'
 Plug 'godlygeek/tabular'
 Plug 'ibab/vim-snakemake'
+Plug 'racer-rust/vim-racer'
 
 
 call plug#end()
@@ -143,9 +144,9 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 " }}}
 
 
-
 " FILETYPES {{{
 
 au BufRead,BufNewFile *.bn set filetype=bnote
+
 
 " }}}
