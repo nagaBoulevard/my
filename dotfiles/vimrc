@@ -22,6 +22,7 @@ call plug#end()
 syntax enable
 set background=dark
 colo gruvbox
+let g:gruvbox_contrast_dark='soft'
 
 hi Normal		ctermbg=None
 hi VertSplit	ctermbg=None
@@ -89,8 +90,10 @@ set fileformats=unix,dos,mac
 
 " MAPPING {{{
 " delete prev word
-"nnoremap <C-w> i<C-w><Esc>
-  
+nnoremap <C-l> <C-w>
+inoremap <C-l> <C-w>
+unmap <C-w>
+
 " what should be standard
 cnoreabbrev Q q
 cnoreabbrev W w
@@ -147,6 +150,6 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 " FILETYPES {{{
 
 au BufRead,BufNewFile *.bn set filetype=bnote
-
+au BufRead,BufNewFile *.lp set filetype=lp
 
 " }}}
