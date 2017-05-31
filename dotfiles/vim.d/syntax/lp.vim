@@ -14,7 +14,7 @@ syn region lpStrInter contained start='{' end='}'
 syn region lpStr start='"' end='"' contains=lpStrInter
 
 syn include @MD syntax/markdown.vim
-syn region lpDoc start='----' end='----' contains=@MD
+syn region lpDoc start='----' end='----' contains=@MD keepend
 
 
 
