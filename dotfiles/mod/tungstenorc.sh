@@ -44,5 +44,3 @@ ${RED}\w ${BLACK}\$(git_branch)\n\
 ${RED}~>$END "
 
 # }}}
-
-

@@ -152,4 +152,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 au BufRead,BufNewFile *.bn set filetype=bnote
 au BufRead,BufNewFile *.lp set filetype=lp
 
+" support for snakemake is not working
+au BufRead,BufNewFile Snakefike set filetype=snakemake
+
 " }}}
