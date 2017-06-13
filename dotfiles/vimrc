@@ -90,9 +90,18 @@ set fileformats=unix,dos,mac
 
 " MAPPING {{{
 
+" Following the idea from SpaceEmacs:
+" 	W -> Window control
+" 	Q -> Query command
+" 	N -> autocomplete substitution
+" 	D? -> Delete
+" 	Z -> undo
+
+
 " what should be standard
 cnoreabbrev Q q
 cnoreabbrev W w
+cnoreabbrev E e
 cnoreabbrev Wq wq
 cnoreabbrev WQ wq
 
@@ -104,12 +113,16 @@ nnoremap Q <nop>
 inoremap <C-d><C-left> <C-w>
 nnoremap <C-d><C-left> <C-w>
 
+" FIXME NOT WORKING
 " C-w control window
 iunmap <C-w>
 "imap <C-w><C-up> <Esc><C-w><C-up>a
 "imap <C-w><C-down> <Esc><C-w><C-down>a
 "imap <C-w><C-left> <Esc><C-w><C-left>a
 "imap <C-w><C-right> <Esc><C-w><C-right>a
+
+" query commands
+map <C-q> :call InputCmd()<CR>
 
 
 " undo
@@ -120,7 +133,7 @@ inoremap <C-z> <Esc>:undo<CR>i
 nnoremap <space> za
 
 " normal backspace
-nmap <BS> i<BS><Esc>
+nmap <BS> i<BS><Esc>l
 
 " Move lines up and down
 noremap  <C-up>    :m-2<CR>
@@ -141,6 +154,20 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Mapping }}}
+
+
+" FUNCTIONS {{{
+"
+function! InputCmd()
+	call inputsave()
+	let cmd = input(':: ')
+	redraw!
+	execute cmd
+	call inputrestore()
+endfunction
+
+
+" }}}
 
 
 " PLUG-OPTIONS {{{
