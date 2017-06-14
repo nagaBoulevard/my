@@ -97,31 +97,30 @@ set fileformats=unix,dos,mac
 "au InsertLeave * startinsert
 
 " to run commands
-autocmd CmdwinEnter * startinsert! | imap <C-q> <C-c><C-c>
-autocmd CmdwinLeave * startinsert!
+autocmd CmdwinEnter * startinsert! | imap <C-q> <Esc>:q<CR>a|imap <CR> <CR>a
+autocmd CmdwinLeave * imap <C-q> <Esc><C-q> | imap <CR> <CR>
 nmap <C-q> <Esc>:<C-f>
 imap <C-q> <Esc><C-q>
-"nmap <C-q> <Esc>:<C-f>
 
 " to perform 'quick' actions, the Ctrl is used
 
 " V = Visual Mode
-imap <C-v> <Esc>:normal v<CR>
+imap <C-v> <Esc>:normal v<CR>li
 
 " U = Undo
-imap <C-u> <Esc>:normal u<CR>
+imap <C-u> <Esc>:normal u<CR>li
 
 " R = Register
 
 " D = Delete
 imap <C-d> <C-w>
-imap <C-d><C-l> <Esc>:normal dd<CR>
+imap <C-d><C-l> <Esc>:normal dd<CR>li
 
 " F = Find
 imap <C-f> <Esc>?
 
 " O = Fold
-imap <C-o> <Esc>za
+imap <C-o> <Esc>za<CR>li
 
 " Move lines up and down
 noremap  <C-up>    :m-2<CR>
@@ -159,7 +158,6 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Mapping }}}
-
 
 
 " PLUG-OPTIONS {{{
