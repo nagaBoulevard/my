@@ -93,23 +93,23 @@ set fileformats=unix,dos,mac
 " removing the modal feature
 
 " set always on insert mode
-au VimEnter * startinsert
-au InsertLeave * startinsert
-
+"au VimEnter * startinsert
+"au InsertLeave * startinsert
 
 " to run commands
-autocmd CmdwinEnter * startinsert!
+autocmd CmdwinEnter * startinsert! | imap <C-q> <C-c><C-c>
 autocmd CmdwinLeave * startinsert!
-imap <C-q> <Esc>:<C-f>
 nmap <C-q> <Esc>:<C-f>
+imap <C-q> <Esc><C-q>
+"nmap <C-q> <Esc>:<C-f>
 
 " to perform 'quick' actions, the Ctrl is used
 
 " V = Visual Mode
 imap <C-v> <Esc>:normal v<CR>
 
-" Z = Undo
-imap <C-z> <Esc>:normal u<CR>
+" U = Undo
+imap <C-u> <Esc>:normal u<CR>
 
 " R = Register
 
@@ -128,7 +128,6 @@ noremap  <C-up>    :m-2<CR>
 noremap  <C-down>  :m+1<CR>
 
 " }}}
-
 
 
 " MAPPING {{{
