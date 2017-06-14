@@ -88,15 +88,50 @@ set fileformats=unix,dos,mac
 " General }}}
 
 
+" VIMI MAPPING {{{
+" the idea is to completely reimagine Vim,
+" removing the modal feature
+
+" set always on insert mode
+au VimEnter * startinsert
+au InsertLeave * startinsert
+
+
+" to run commands
+autocmd CmdwinEnter * startinsert!
+autocmd CmdwinLeave * startinsert!
+imap <C-q> <Esc>:<C-f>
+nmap <C-q> <Esc>:<C-f>
+
+" to perform 'quick' actions, the Ctrl is used
+
+" V = Visual Mode
+imap <C-v> <Esc>:normal v<CR>
+
+" Z = Undo
+imap <C-z> <Esc>:normal u<CR>
+
+" R = Register
+
+" D = Delete
+imap <C-d> <C-w>
+imap <C-d><C-l> <Esc>:normal dd<CR>
+
+" F = Find
+imap <C-f> <Esc>?
+
+" O = Fold
+imap <C-o> <Esc>za
+
+" Move lines up and down
+noremap  <C-up>    :m-2<CR>
+noremap  <C-down>  :m+1<CR>
+
+" }}}
+
+
+
 " MAPPING {{{
-
-" Following the idea from SpaceEmacs:
-" 	W -> Window control
-" 	Q -> Query command
-" 	N -> autocomplete substitution
-" 	D? -> Delete
-" 	Z -> undo
-
 
 " what should be standard
 cnoreabbrev Q q
@@ -109,37 +144,8 @@ cnoreabbrev WQ wq
 nnoremap q <nop>
 nnoremap Q <nop>
 
-" C-d delete word
-inoremap <C-d><C-left> <C-w>
-nnoremap <C-d><C-left> <C-w>
-
-" FIXME NOT WORKING
-" C-w control window
-iunmap <C-w>
-"imap <C-w><C-up> <Esc><C-w><C-up>a
-"imap <C-w><C-down> <Esc><C-w><C-down>a
-"imap <C-w><C-left> <Esc><C-w><C-left>a
-"imap <C-w><C-right> <Esc><C-w><C-right>a
-
-" query commands
-map <C-q> :call InputCmd()<CR>
-
-
-" undo
-nnoremap <C-z> :undo<CR>
-inoremap <C-z> <Esc>:undo<CR>i
-
-" folds
-nnoremap <space> za
-
 " normal backspace
 nmap <BS> i<BS><Esc>l
-
-" Move lines up and down
-noremap  <C-up>    :m-2<CR>
-noremap  <C-down>  :m+1<CR>
-inoremap <C-up>    <Esc>:m-2<CR>i
-inoremap <C-down>  <Esc>:m+1<CR>i
 
 " Tabs
 nnoremap <C-t>     :tabnew<CR>
@@ -155,19 +161,6 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 
 " Mapping }}}
 
-
-" FUNCTIONS {{{
-"
-function! InputCmd()
-	call inputsave()
-	let cmd = input(':: ')
-	redraw!
-	execute cmd
-	call inputrestore()
-endfunction
-
-
-" }}}
 
 
 " PLUG-OPTIONS {{{
