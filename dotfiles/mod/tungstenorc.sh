@@ -4,7 +4,7 @@
 [[ -z $BIOINFO_ROOT ]] && export BIOINFO_ROOT=/mnt/red/gilo/bioinfotree/
 export BIOINFO_HOST=tungsteno
 source $BIOINFO_ROOT/local/share/bash/bashrc
-
+export BITSNAKE=/home/gilo/bitsnake/bit.snake
 
 # ALIASES {{{
 
