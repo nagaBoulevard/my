@@ -21,7 +21,7 @@ call plug#end()
 
 syntax enable
 set background=dark
-colo gruvbox
+colorscheme gruvbox
 let g:gruvbox_contrast_dark='soft'
 
 hi Normal		ctermbg=None
@@ -41,9 +41,9 @@ au InsertEnter * hi StatusLine	ctermbg=None	ctermfg=142		cterm=bold
 au InsertLeave * hi StatusLine	ctermbg=None	ctermfg=9 		cterm=bold
 
 
-
+" set the statusline as
 " cropped filename : ft : percent_on_tot
-set statusline=%=\ %.12F\ %y\ %p%%\ \ 
+set statusline=%=\ %.16F\ %y\ %p%%\ \ 
 set fillchars=vert:\|,stl:\ ,stlnc:-
 set laststatus=2
 
@@ -58,7 +58,10 @@ set list listchars=tab:»\ ,trail:·
 set backspace=indent,eol,start				" real backspace
 set autoindent
 set smarttab
-set tabstop=4 shiftwidth=4
+set tabstop=4 								" the numner of spaces that are shown to represent a <TAB>
+set softtabstop=4							" the number of spaces inserted with <TAB>
+" set expandtab								auto convert <TAB> in spaces
+filetype indent on
 
 set foldmethod=marker
 
@@ -73,12 +76,12 @@ set completeopt=menuone,longest,preview
 set autoread								" auto detect if a file has been changed from outside
 
 set showmatch								" hi the matches
-set incsearch								" incremental search, like in browsers
+set incsearch								" search as chars are entered
 set hlsearch								" hi the mathces of search
 set ignorecase								" ignore the case while searching
 set smartcase								" be smart with the case while searching
 
-set mouse=a									" mouse activate!
+set mouse=a									" mouse active!
 set hidden									" set abandoned buffers as hidden
 set nobackup
 set nowritebackup
@@ -93,7 +96,7 @@ set fileformats=unix,dos,mac
 " removing the modal feature
 
 " set always on insert mode
-"au VimEnter * startinsert
+au VimEnter * startinsert
 "au InsertLeave * startinsert
 
 " to run commands
