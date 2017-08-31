@@ -96,7 +96,7 @@ set fileformats=unix,dos,mac
 " removing the modal feature
 
 " set always on insert mode
-au VimEnter * startinsert
+" au VimEnter * startinsert
 "au InsertLeave * startinsert
 
 " to run commands
@@ -126,8 +126,8 @@ imap <F4> <Esc>:normal za<CR>
 "imap <C-o> <Esc>za<CR>li
 
 " Move lines up and down
-noremap  <C-up>    :m-2<CR>
-noremap  <C-down>  :m+1<CR>
+inoremap  <C-up>    :m-2<CR>
+inoremap  <C-down>  :m+1<CR>
 
 " }}}
 
@@ -172,6 +172,7 @@ let g:VimuxHeight = "33"
 
 au BufRead,BufNewFile *.bn set filetype=bnote
 au BufRead,BufNewFile *.lp set filetype=lp
+au BufRead,BufNewFile *.ws set filetype=wasp
 
 " support for snakemake is not working
 au BufRead,BufNewFile Snakefile set ft=snakemake
