@@ -1,3 +1,5 @@
+" Alternative file to study vim configutaration
+
 " PLUGINS {{{
 " using vim-plug
 
@@ -60,7 +62,6 @@ set autoindent
 set smarttab
 set tabstop=4 								" the numner of spaces that are shown to represent a <TAB>
 set softtabstop=4							" the number of spaces inserted with <TAB>
-set shiftwidth=8
 " set expandtab								auto convert <TAB> in spaces
 filetype indent on
 
@@ -97,38 +98,36 @@ set fileformats=unix,dos,mac
 " removing the modal feature
 
 " set always on insert mode
-" au VimEnter * startinsert
-"au InsertLeave * startinsert
+au VimEnter * startinsert
 
 " to run commands
-autocmd CmdwinEnter * startinsert! | imap <silent> <C-q> <Esc>:q<CR>a
-autocmd CmdwinLeave * imap <C-q> <Esc><C-q> | imap <CR> <CR>
-nmap <C-q> :<C-f>
-imap <C-q> <Esc><C-q>
+autocmd CmdwinEnter * startinsert! | imap <silent> <F3> <Esc>:q<CR>a
+"autocmd CmdwinLeave * imap <C-q> <Esc><C-q> | imap <CR> <CR>
+nmap <F3> :<C-f>
+imap <F3> <Esc>:<C-f>
 
 " to perform 'quick' actions, the Ctrl is used
 
 " V = Visual Mode
-imap <C-v> <Esc>:normal v<CR>li
+imap <C-v> <Esc>:normal v<CR>a
 
 " U = Undo
-imap <C-u> <Esc>:normal u<CR>li
+imap <C-u> <Esc>:normal u<CR>a
 
 " R = Register
 
 " D = Delete
-imap <C-d> <C-w>
-imap <C-d><C-l> <Esc>:normal dd<CR>li
+imap <C-d><C-left> <C-w>
+imap <C-d><C-d> <Esc>:normal dd<CR>a
 
 " F = Find
-imap <F4> <Esc>:normal za<CR>
 
 " O = Fold
-"imap <C-o> <Esc>za<CR>li
+imap <C-o> <Esc>za<CR>i
 
 " Move lines up and down
-inoremap  <C-up>    :m-2<CR>
-inoremap  <C-down>  :m+1<CR>
+imap  <C-up>    <ESC>:m-2<CR>a
+imap  <C-down>  <ESC>:m+1<CR>a
 
 " }}}
 
