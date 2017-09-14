@@ -178,4 +178,7 @@ au BufRead,BufNewFile *.ws set filetype=wasp
 " support for snakemake is not working
 au BufRead,BufNewFile Snakefile set ft=snakemake
 
+" relink markdown
+au BufRead,BufNewFile *.md set filetype=mnote
+
 " }}}
