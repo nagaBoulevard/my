@@ -24,21 +24,21 @@ set background=dark
 colorscheme gruvbox
 let g:gruvbox_contrast_dark='soft'
 
-hi Normal		ctermbg=None
-hi VertSplit	ctermbg=None
-hi Folded		ctermbg=None	ctermfg=214		cterm=bold
-hi FoldColumn	ctermbg=None
-hi Tabline		ctermbg=None	ctermfg=243		cterm=bold
-hi TabLineFill	ctermbg=None
-hi TablineSel	ctermbg=None	ctermfg=9		cterm=bold
-hi Pmenu		ctermbg=None	ctermfg=142
-hi PmenuSel		ctermbg=None	ctermfg=9		cterm=reverse
-hi StatusLineNC	ctermbg=None	ctermfg=243		cterm=bold
+hi Normal       ctermbg=None
+hi VertSplit    ctermbg=None
+hi Folded       ctermbg=None    ctermfg=214     cterm=bold
+hi FoldColumn   ctermbg=None
+hi Tabline      ctermbg=None    ctermfg=243     cterm=bold
+hi TabLineFill  ctermbg=None
+hi TablineSel   ctermbg=None    ctermfg=9       cterm=bold
+hi Pmenu        ctermbg=None    ctermfg=142
+hi PmenuSel     ctermbg=None    ctermfg=9       cterm=reverse
+hi StatusLineNC ctermbg=None    ctermfg=243     cterm=bold
 
 " change on insertmode
-hi StatusLine					ctermbg=None	ctermfg=9 		cterm=bold
-au InsertEnter * hi StatusLine	ctermbg=None	ctermfg=142		cterm=bold
-au InsertLeave * hi StatusLine	ctermbg=None	ctermfg=9 		cterm=bold
+hi StatusLine                   ctermbg=None    ctermfg=9       cterm=bold
+au InsertEnter * hi StatusLine  ctermbg=None    ctermfg=142     cterm=bold
+au InsertLeave * hi StatusLine  ctermbg=None    ctermfg=9       cterm=bold
 
 
 " set the statusline as
@@ -55,35 +55,35 @@ set list listchars=tab:»\ ,trail:·
 
 " GENERAL {{{
 
-set backspace=indent,eol,start				" real backspace
+set backspace=indent,eol,start              " real backspace
 set autoindent
 set smarttab
-set tabstop=4 								" the numner of spaces that are shown to represent a <TAB>
-set softtabstop=4							" the number of spaces inserted with <TAB>
+set tabstop=4                               " the numner of spaces that are shown to represent a <TAB>
+set softtabstop=4                           " the number of spaces inserted with <TAB>
 set shiftwidth=4
-" set expandtab								auto convert <TAB> in spaces
-" filetype indent on
+set expandtab                               " auto convert <TAB> in spaces
+filetype indent on
 
 set foldmethod=marker
 
 set shiftround
-set number									" display col numbers
-set ruler									" display cursor position
+set number                                  " display col numbers
+set ruler                                   " display cursor position
 set showcmd
-set wildmenu								" autocomplete menu
-set noshowmode								" hide the current mode
+set wildmenu                                " autocomplete menu
+set noshowmode                              " hide the current mode
 set completeopt=menuone,longest,preview
 
-set autoread								" auto detect if a file has been changed from outside
+set autoread                                " auto detect if a file has been changed from outside
 
-set showmatch								" hi the matches
-set incsearch								" search as chars are entered
-set hlsearch								" hi the mathces of search
-set ignorecase								" ignore the case while searching
-set smartcase								" be smart with the case while searching
+set showmatch                               " hi the matches
+set incsearch                               " search as chars are entered
+set hlsearch                                " hi the mathces of search
+set ignorecase                              " ignore the case while searching
+set smartcase                               " be smart with the case while searching
 
-set mouse=a									" mouse active!
-set hidden									" set abandoned buffers as hidden
+set mouse=a                                 " mouse active!
+set hidden                                  " set abandoned buffers as hidden
 set nobackup
 set nowritebackup
 set noswapfile
@@ -158,8 +158,8 @@ let mapleader = ';'
 
 "identify the hi group at the cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-			\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-			\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Mapping }}}
 
