@@ -60,9 +60,9 @@ set autoindent
 set smarttab
 set tabstop=4 								" the numner of spaces that are shown to represent a <TAB>
 set softtabstop=4							" the number of spaces inserted with <TAB>
-set shiftwidth=8
+set shiftwidth=4
 " set expandtab								auto convert <TAB> in spaces
-filetype indent on
+" filetype indent on
 
 set foldmethod=marker
 
