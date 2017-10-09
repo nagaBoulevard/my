@@ -3,6 +3,7 @@
 #[[ -z $BIOINFO_ROOT ]] && export BIOINFO_ROOT=/mnt/red/data/bioinfotree/
 [[ -z $BIOINFO_ROOT ]] && export BIOINFO_ROOT=/mnt/red/gilo/bioinfotree/
 export BIOINFO_HOST=tungsteno
+export BIOINFO_STORE=/rogue/bioinfotree
 source $BIOINFO_ROOT/local/share/bash/bashrc
 export BITSNAKE=/home/gilo/bitsnake/bit.snake
 
