@@ -38,9 +38,14 @@ WHITE='\[\033[37m\]'
 DEFAULT='\[\033[39m\]'
 END='\[\033[0m\]'
 
-PS1="\n\
+# bash
+BASH_PS1="\n\
 ${BOLD}\
 ${RED}\w ${BLACK}\$(git_branch)\n\
 ${RED}~>$END "
+
+
+PROMPT="%B%F{red}%d%f %F{black}$(git_branch)%f %b
+:> "
 
 # }}}

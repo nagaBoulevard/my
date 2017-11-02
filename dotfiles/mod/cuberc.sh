@@ -19,6 +19,10 @@ ${BOLD}\
 ${GREEN}\w${BLACK} \$(git_branch)\n\
 ${GREEN}~>$END "
 
+PROMPT="%B%F{green}%d%f %F{black}$(git_branch)%f %b
+:> "
+
+
 # }}}
 
 
