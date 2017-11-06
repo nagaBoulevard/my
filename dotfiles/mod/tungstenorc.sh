@@ -40,7 +40,7 @@ DEFAULT='\[\033[39m\]'
 END='\[\033[0m\]'
 
 # bash
-BASH_PS1="\n\
+PS1="\n\
 ${BOLD}\
 ${RED}\w ${BLACK}\$(git_branch)\n\
 ${RED}~>$END "
