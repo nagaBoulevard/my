@@ -1,0 +1,37 @@
+
+# VARS
+# ----
+MAINDIR="$HOME/.think/"
+STORAGE="$MAINDIR/storage.md"
+TEMP="$MAINDIR/temp.md"
+
+mkdir -p $MAINDIR
+touch $STORAGE
+
+# move to the $MAINDIR,
+# if git is present, pull the latest modif,
+# else initialize it
+cd $MAINDIR
+if [ -e "$MAINDIR/.git" ]; then
+    git pull
+else
+    git init
+    git remote add origin git@gitlab.com:gilo/think.git
+    git add $STORAGE
+fi
+
+
+# add the thought to the think storage
+vi $TEMP
+
+if [ -s $TEMP ]; then
+    echo -e "\n\n\n\n------------------------------\n$(date)\n" >> $STORAGE
+    cat $TEMP >> $STORAGE
+fi
+
+
+
+git add $STORAGE
+git commit -m "COMMIT @ $(date)"
+git push -u origin master
+rm -f $TEMP || true
