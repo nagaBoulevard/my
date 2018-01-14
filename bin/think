@@ -5,20 +5,19 @@ MAINDIR="$HOME/.think/"
 STORAGE="$MAINDIR/storage.md"
 TEMP="$MAINDIR/temp.md"
 
-mkdir -p $MAINDIR
-touch $STORAGE
 
-# move to the $MAINDIR,
 # if git is present, pull the latest modif,
 # else initialize it
-cd $MAINDIR
 if [ -e "$MAINDIR/.git" ]; then
-    git pull 2> /dev/null
+    cd $MAINDIR
+    git pull origin master &> /dev/null
 else
-    git init 2> /dev/null
-    git remote add origin git@gitlab.com:gilo/think.git 2> /dev/null
-    git add $STORAGE 2> /dev/null
+    git clone git@gitlab.com:gilo/think.git $MAINDIR
+    cd $MAINDIR
+    git add $STORAGE
 fi
+
+
 
 
 # add the thought to the think storage
@@ -31,7 +30,7 @@ fi
 
 
 
-git add $STORAGE 2> /dev/null
-git commit -m "COMMIT @ $(date)" 2> /dev/null
-git push -u origin master 2> /dev/null
+git add $STORAGE &> /dev/null
+git commit -m "COMMIT @ $(date)" &> /dev/null
+git push -u origin master &> /dev/null
 rm -f $TEMP || true
