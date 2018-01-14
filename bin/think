@@ -13,11 +13,11 @@ touch $STORAGE
 # else initialize it
 cd $MAINDIR
 if [ -e "$MAINDIR/.git" ]; then
-    git pull
+    git pull 2> /dev/null
 else
-    git init
-    git remote add origin git@gitlab.com:gilo/think.git
-    git add $STORAGE
+    git init 2> /dev/null
+    git remote add origin git@gitlab.com:gilo/think.git 2> /dev/null
+    git add $STORAGE 2> /dev/null
 fi
 
 
@@ -31,7 +31,7 @@ fi
 
 
 
-git add $STORAGE
-git commit -m "COMMIT @ $(date)"
-git push -u origin master
+git add $STORAGE 2> /dev/null
+git commit -m "COMMIT @ $(date)" 2> /dev/null
+git push -u origin master 2> /dev/null
 rm -f $TEMP || true
