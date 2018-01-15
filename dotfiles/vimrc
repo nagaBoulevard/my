@@ -38,11 +38,10 @@ hi StatusLineNC ctermbg=None    ctermfg=243     cterm=bold
 
 " change on insertmode
 hi StatusLine                   ctermbg=None    ctermfg=9       cterm=bold
-au InsertEnter * hi StatusLine  ctermbg=None    ctermfg=142     cterm=bold
+au InsertEnter * hi StatusLine  ctermbg=None    ctermfg=142       cterm=bold
 au InsertLeave * hi StatusLine  ctermbg=None    ctermfg=9       cterm=bold
 
-
-" set the statusline as
+" set the statusline a
 " cropped filename : ft : percent_on_tot
 set statusline=%=\ %.16F\ %y\ %p%%\ \ 
 set fillchars=vert:\|,stl:\ ,stlnc:-
@@ -50,6 +49,13 @@ set laststatus=2
 
 set encoding=utf8
 set list listchars=tab:»\ ,trail:·
+
+
+" set the cursor shape for insert and normal modes
+" normal = vertical bar
+let &t_SI .= "\<Esc>[3 q"
+" insert = underscore
+let &t_EI .= "\<Esc>[5 q"
 
 " }}}
 
