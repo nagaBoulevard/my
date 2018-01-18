@@ -8,5 +8,5 @@ next_hue() {
     echo -ne "\e[1;${color}m"    # change 1 to 0 for darker colors
 }
 PROMPT_COMMAND=next_hue
-PS1="\n\w \$(git_branch)\n:;\[\e[0m\] "
+PS1="\n\w \$(git_branch)\n$\[\e[0m\] "
 
