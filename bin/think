@@ -21,7 +21,7 @@ fi
 
 
 # add the thought to the think storage
-vi $TEMP
+$EDITOR $TEMP
 
 if [ -s $TEMP ]; then
     echo -e "\n\n\n\n------------------------------\n$(date)\n" >> $STORAGE
