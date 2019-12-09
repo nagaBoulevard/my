@@ -1,3 +1,4 @@
+ 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -5,10 +6,13 @@ umask 0007
 export LANG=C
 export LC_ALL=C
 
-# source for host dependent settings
+# This bash script is for general settings
+# for system based settings, a script is used
 source $HOME/.my/dotfiles/mod/mod.sh
 
-# MAIN {{{
+
+##### STANDARD CONFIGURATIONS #####
+###################################
 
 # If not running interactively, don't do anything
 case $- in
@@ -16,12 +20,14 @@ case $- in
       *) return;;
 esac
 
+
 # HISTORY #
 HISTCONTROL=ignoreboth  # no duplicate lines or lines starting with space in the history
 shopt -s histappend   	# append to the history file, don't overwrite it
 HISTSIZE=1000
 HISTFILESIZE=2000
 shopt -s checkwinsize   # update window size after command
+
 
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
@@ -32,6 +38,7 @@ fi
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
+
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -44,25 +51,25 @@ if ! shopt -oq posix; then
   fi
 fi
 
-## MAIN }}}
 
 
-# ALIASES {{{
+
+# ALIAS #
+#########
+
 alias ls='ls --color="auto"'
-#alias grep='grep --color="auto"'
+alias grep='grep --color="auto"'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
 alias lst='ls --sort=time'
 alias size="du -h -d1 | sort -k1hr"
-
-# GIT
 alias "gs"="git status -s"
 
-# }}}
 
 
-# FUNCTIONS {{{
+# FUNCTIONS #
+#############
 
 function zhead { 
 	zcat $1 | head 
@@ -94,40 +101,48 @@ function short_wd {
 function git_branch {
 	branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
 	if [ $? != 0 ]; 
-		then branch=""; 
-	fi
+		then branch="";
+    fi
 
-#	if [[ "$branch" != "" ]]; then
-#	if git status -s | grep -q M;
-#		then status="*";
-#		else status=""; fi
-#	fi
-
-	echo "$branch$status"
-	
+	echo "$branch"
 }
 
-# }}}
+# remove the feature of `cd`,
+# where if no args are passed it returns to the home dir
+# this way, with no args, nothing happens
+cd() {
+    (( $# > 0)) && builtin cd "$@"
+    (( $# == 0 )) && echo "cd: No directory passed as input."
+}
 
 
-# SETTINGS {{{
+
+# SETTINGS #
+############
 
 export PATH=$PATH:$HOME/.my/bin/
 
 # set colorspace to 256 colors 
 export TERM=xterm-256color
 
-export EDITOR=vi
-
 # set completion
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# }}}
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/lustre1/ctgb-usr/local/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/lustre1/ctgb-usr/local/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/lustre1/ctgb-usr/local/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/lustre1/ctgb-usr/local/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
-# VARIABLES {{{
-
-export BIOTHER=217.57.164.228
-export TUNGSTENO=130.192.147.6
