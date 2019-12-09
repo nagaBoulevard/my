@@ -11,7 +11,6 @@ Plug 'godlygeek/tabular'
 Plug 'ibab/vim-snakemake'
 Plug 'junegunn/goyo.vim'
 Plug 'benmills/vimux'
-Plug 'dart-lang/dart-vim-plugin'
 
 call plug#end()
 
@@ -38,8 +37,14 @@ hi StatusLineNC ctermbg=None    ctermfg=243     cterm=bold
 
 " change on insertmode
 hi StatusLine                   ctermbg=None    ctermfg=9       cterm=bold
-au InsertEnter * hi StatusLine  ctermbg=None    ctermfg=142       cterm=bold
+au InsertEnter * hi StatusLine  ctermbg=None    ctermfg=142     cterm=bold
 au InsertLeave * hi StatusLine  ctermbg=None    ctermfg=9       cterm=bold
+
+" change on insertmode
+set cursorline
+hi CursorLine                   ctermbg=None    ctermfg=None
+au InsertEnter * hi CursorLine  ctermbg=237     ctermfg=None
+au InsertLeave * hi CursorLine  ctermbg=None    ctermfg=None
 
 " set the statusline a
 " cropped filename : ft : percent_on_tot
@@ -53,9 +58,9 @@ set list listchars=tab:»\ ,trail:·
 
 " set the cursor shape for insert and normal modes
 " normal = vertical bar
-let &t_SI .= "\<Esc>[3 q"
+"let &t_SI .= "\<Esc>[3 q"
 " insert = underscore
-let &t_EI .= "\<Esc>[5 q"
+"let &t_EI .= "\<Esc>[5 q"
 
 " }}}
 
@@ -108,34 +113,34 @@ set fileformats=unix,dos,mac
 "au InsertLeave * startinsert
 
 " to run commands
-autocmd CmdwinEnter * startinsert! | imap <silent> <C-q> <Esc>:q<CR>a
-autocmd CmdwinLeave * imap <C-q> <Esc><C-q> | imap <CR> <CR>
-nmap <C-q> :<C-f>
-imap <C-q> <Esc><C-q>
+"autocmd CmdwinEnter * startinsert! | imap <silent> <C-q> <Esc>:q<CR>a
+"autocmd CmdwinLeave * imap <C-q> <Esc><C-q> | imap <CR> <CR>
+"nmap <C-q> :<C-f>
+"imap <C-q> <Esc><C-q>
 
 " to perform 'quick' actions, the Ctrl is used
 
 " V = Visual Mode
-imap <C-v> <Esc>:normal v<CR>li
+"imap <C-v> <Esc>:normal v<CR>li
 
 " U = Undo
-imap <C-u> <Esc>:normal u<CR>li
+"imap <C-u> <Esc>:normal u<CR>li
 
 " R = Register
 
 " D = Delete
-imap <C-d> <C-w>
-imap <C-d><C-l> <Esc>:normal dd<CR>li
+"imap <C-d> <C-w>
+"imap <C-d><C-l> <Esc>:normal dd<CR>li
 
 " F = Find
-imap <F4> <Esc>:normal za<CR>
+"imap <F4> <Esc>:normal za<CR>
 
 " O = Fold
 "imap <C-o> <Esc>za<CR>li
 
 " Move lines up and down
-inoremap  <C-up>    :m-2<CR>
-inoremap  <C-down>  :m+1<CR>
+"inoremap  <C-up>    :m-2<CR>
+"inoremap  <C-down>  :m+1<CR>
 
 " }}}
 
@@ -159,6 +164,10 @@ nmap <BS> i<BS><Esc>l
 " Tabs
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>i
+nnoremap <C-Right>  :tabnext<CR>
+nnoremap <C-Left>   :tabprevious<CR>
+inoremap <C-Right>  <Esc>:tabnext<CR>a
+inoremap <C-Left>   <Esc>:tabprevious<CR>a
 
 " leader
 let mapleader = ';'
