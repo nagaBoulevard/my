@@ -169,6 +169,11 @@ nnoremap <C-Left>   :tabprevious<CR>
 inoremap <C-Right>  <Esc>:tabnext<CR>a
 inoremap <C-Left>   <Esc>:tabprevious<CR>a
 
+" Autocomplete
+nnoremap <C-x>  <C-n>
+inoremap <C-x>  <C-n>
+
+
 " leader
 let mapleader = ';'
 
