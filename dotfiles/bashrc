@@ -11,6 +11,11 @@ export LC_ALL=C
 source $HOME/.my/dotfiles/mod/mod.sh
 
 
+# source the bioinfotree structure
+source /lustre1/ctgb-usr/.bashrc
+
+
+
 ##### STANDARD CONFIGURATIONS #####
 ###################################
 

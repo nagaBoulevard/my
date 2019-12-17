@@ -9,10 +9,12 @@ fi
 
 
 case $host in
-    login1)
+    login[1-2])
 	    source $HOME/.my/dotfiles/mod/osrrc.sh;;
 	b[0-9]*)
 	    source $HOME/.my/dotfiles/mod/osrrc.sh;;
+    f[0-9]*)
+        source $HOME/.my/dotfiles/mod/osrrc.sh;;
     tungsteno) 
         source $HOME/.my/dotfiles/mod/tungstenorc.sh;;
     cube) 
