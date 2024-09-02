@@ -23,4 +23,6 @@ case $host in
         source $HOME/.my/dotfiles/mod/morarc.sh;;
     chromeos)
         source $HOME/.my/dotfiles/mod/chromeosrc.sh;;
+	medusa)
+		source $HOME/.my/dotfiles/mod/medusarc.sh;;
 esac
