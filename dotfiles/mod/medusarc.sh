@@ -27,3 +27,7 @@ xinput set-prop "DELL08E1:00 06CB:CD97 Touchpad" "libinput Tapping Enabled" 1
 
 # set natural scrolling
 xinput set-prop "DELL08E1:00 06CB:CD97 Touchpad" "libinput Natural Scrolling Enabled" 1
+
+# set android home and tools
+export ANDROID_HOME=/usr/lib/android-sdk
+export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
