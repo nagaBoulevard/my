@@ -3,8 +3,7 @@
 if [ -e /proc/sys/kernel/hostname ]; then
     host=`cat /proc/sys/kernel/hostname` 
 else
-    # in chromeos, no /etc/hostname exists
-    host="chromeos"
+    host="macos"
 fi
 
 
@@ -25,4 +24,6 @@ case $host in
         source $HOME/.my/dotfiles/mod/chromeosrc.sh;;
 	medusa)
 		source $HOME/.my/dotfiles/mod/medusarc.sh;;
+    macos)
+        source $HOME/.my/dotfiles/mod/macosrc.sh;;
 esac
